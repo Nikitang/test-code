@@ -1,5 +1,7 @@
 @use 'fonts';
 
+$baseFont: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 body {
     width: 100%;
     height: 100%;
@@ -19,10 +21,337 @@ body {
             font-size: 16px;
             padding-left: 15px;
             margin-right: 70px;
+            transition: 0.2s ease-in;
+            cursor: pointer;
 
             span {
-                font-family: 'Lato';
+                font-family: $baseFont;
             }
+
+            &:hover {
+                color: #8d8b8b;
+            }
+        }
+    }
+
+    &__second {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+
+        @media (max-width: 770px) and (min-width: 391px) {
+            justify-content: space-around;
+        }
+        &-logo {
+            margin-right: 180px;
+            @media (max-width: 770px) and (min-width: 391px) {
+                margin-right: 280px;
+            }
+            span {
+                font-family: 'Kurotaki';
+                color: #000;
+                display: inline-block;
+                font-size: 14px;
+                width: 20px;
+                margin: 0 0 5px 0;
+            }
+
+            img {
+                position: relative;
+                top: 2px;
+                height: 56px;
+                width: 56px;
+            }
+        }
+        //mobile
+        &-menu {
+            cursor: pointer;
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        &-navs {
+            display: flex;
+            flex-direction: row;
+
+            &-nav {
+                position: relative;
+                font-family: $baseFont;
+                margin-left: 100px;
+                font-weight: 400;
+                cursor: pointer;
+                text-decoration: none;
+                color: #000;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: #000;
+                    transition: 0.2s ease-in;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+        }
+
+        &-search {
+            margin-left: 100px;
+            input {
+                width: 200px;
+                border-radius: 30px;
+                text-decoration: none;
+                height: 40px;
+                border: 1px solid #eeeeee;
+                padding: 0 0 0 15px;
+                font-size: 16px;
+                transition: all 0.4s ease-in-out;
+                opacity: 0.6;
+                &:focus {
+                    opacity: 1;
+                    width: 220px;
+                }
+            }
+
+            img {
+                position: relative;
+                right: 40px;
+                top: 5px;
+            }
+        }
+
+        &-basket {
+            width: 160px;
+            height: 40px;
+            background-color: #000;
+            margin: 0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease-in;
+
+            &:hover {
+                background-color: #333;
+            }
+
+            img {
+                position: relative;
+                top: 6px;
+                left: 25px;
+            }
+
+            span {
+                position: relative;
+                left: 30px;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.main {
+    &__title {
+        display: flex;
+        justify-content: flex-start;
+        margin: 50px 0 50px 250px;
+
+        @media (max-width: 770px) and (min-width: 391px) {
+            margin: 50px 0 50px 100px;
+        }
+
+        h1 {
+            font-family: 'Kurotaki';
+        }
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: 20px;
+        .main__card {
+            margin: 0 0 0 60px;
+            &-disc {
+                position: absolute;
+                margin: 10px 0 0 12px;
+                width: 125px;
+                height: 40px;
+                border-radius: 25px;
+                background-color: #000;
+                span {
+                    position: absolute;
+                    margin: 10px 0 0 34px;
+                    color: #fff;
+                }
+            }
+            img {
+                border-radius: 25px;
+                width: 320px;
+                height: 480px;
+
+                @media (max-width: 770px) and (min-width: 391px) {
+                    width: 240px;
+                    height: 360px;
+                }
+            }
+
+            &-button {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                bottom: 120px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: rgba(255, 255, 255, 0.5);
+                color: white;
+                border: none;
+                transition: 0.3s ease-in-out;
+                opacity: 0;
+                height: 100px;
+
+                button {
+                    width: 258px;
+                    height: 48px;
+                    font-size: 16px;
+                    background-color: #e45302;
+                    color: #fff;
+                    border: none;
+                    border-radius: 100px;
+                    cursor: pointer;
+                }
+            }
+
+            &:hover {
+                .main__card-button {
+                    bottom: 190px;
+                    opacity: 1;
+                }
+            }
+
+            &-info {
+                h5 {
+                    font-family: $baseFont;
+                    font-size: 15px;
+                }
+            }
+
+            &-price {
+                &--main {
+                    font-family: $baseFont;
+                    font-weight: bold;
+                }
+                &--disc {
+                    font-family: $baseFont;
+                    margin-left: 15px;
+                    font-weight: bold;
+                }
+
+                &--dash {
+                    position: relative;
+                    top: 11px;
+                    left: 80px;
+                    width: 55px;
+                    height: 2px;
+                    background-color: #808080;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: #000;
+    display: flex;
+    justify-content: space-evenly;
+    height: 320px;
+    align-items: center;
+    &__block-one {
+        &-logo {
+            margin-bottom: 40px;
+            span {
+                font-family: 'Kurotaki';
+                color: #ffffff;
+                display: inline-block;
+                font-size: 14px;
+                width: 20px;
+                margin: 0 0 5px 0;
+            }
+
+            img {
+                position: relative;
+                top: 2px;
+                height: 56px;
+                width: 56px;
+            }
+        }
+
+        &--captcha {
+            width: 325px;
+
+            span {
+                font-family: $baseFont;
+                color: #808080;
+            }
+
+            a {
+                font-family: $baseFont;
+                color: #808080;
+            }
+        }
+    }
+
+    &__block-two {
+        &--address {
+            font-family: $baseFont;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        &--contacts {
+            display: flex;
+            flex-direction: column;
+            font-family: $baseFont;
+            color: #fff;
+
+            span {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &__block-three {
+        display: flex;
+        flex-direction: column;
+        font-family: $baseFont;
+        color: #fff;
+
+        span {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__block-four {
+        display: flex;
+        flex-direction: column;
+        span {
+            text-align: right;
+            display: block;
+            font-family: $baseFont;
+            color: #808080;
+            margin-bottom: 20px;
+        }
+
+        img {
+            margin: 30px 0 0 35px;
         }
     }
 }

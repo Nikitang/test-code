@@ -32,13 +32,21 @@ export default (env) => {
                     use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
                 },
                 {
-                    test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                    type: 'asset/resource',
+                    test: /\.(png|svg|jpg|jpeg|gif)$/i, //test: /\.(png|jpe?g|gif|svg)$/i,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: '[name].[ext]',
+                                outputPath: 'images/',
+                            },
+                        },
+                    ],
                 },
             ],
         },
         devServer: {
-            port: 3007,
+            port: 3001,
             open: true,
         },
     };
