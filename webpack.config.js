@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 export default (env) => {
     return {
         mode: env.mode ?? 'development',
-        entry: path.resolve(__dirname, 'src', 'index.js'),
+        entry: path.resolve(__dirname, 'index.js'),
         output: {
             path: path.join(__dirname, 'build'),
             filename: 'bundle.js',
@@ -46,7 +46,7 @@ export default (env) => {
             ],
         },
         devServer: {
-            port: 3001,
+            port: 3003,
             open: true,
         },
     };
