@@ -165,9 +165,13 @@ data.forEach((item) => {
 
 let setOpen = false;
 
+const footerDiv = document.querySelector('.header');
+const savedDiv = footerDiv.innerHTML;
 window.addEventListener('resize', () => {
+    
+    
     if (window.innerWidth <= 770) {
-        const footerDiv = document.querySelector('.header');
+        
         footerDiv.innerHTML = `
         <div class="header__second">
             <div class="header__second-logo">
@@ -178,11 +182,15 @@ window.addEventListener('resize', () => {
                 <img src=${logoMenu} alt="" />
             </div>
         </div>`;
+
+        const menuImg = document.querySelector('.header__second-menu img');
+        menuImg.removeEventListener('click', handleMenuClick);
+        menuImg.addEventListener('click', handleMenuClick);
+    } else if (window.innerWidth >= 770) {
+        footerDiv.innerHTML = savedDiv;
     }
 
-    const menuImg = document.querySelector('.header__second-menu img');
-    menuImg.removeEventListener('click', handleMenuClick);
-    menuImg.addEventListener('click', handleMenuClick);
+    
 });
 function handleMenuClick() {
     setOpen = !setOpen;

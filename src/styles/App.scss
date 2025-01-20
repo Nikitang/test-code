@@ -36,7 +36,7 @@ body {
 
     &__second {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         height: 80px;
 
@@ -44,7 +44,7 @@ body {
             justify-content: space-around;
         }
         &-logo {
-            margin-right: 180px;
+            
             @media (max-width: 770px) and (min-width: 391px) {
                 margin-right: 280px;
             }
@@ -76,6 +76,9 @@ body {
         &-navs {
             display: flex;
             flex-direction: row;
+            @media (max-width: 1280px) and (min-width: 780px) {
+                justify-content: space-around;
+            }
 
             &-nav {
                 position: relative;
@@ -85,6 +88,11 @@ body {
                 cursor: pointer;
                 text-decoration: none;
                 color: #000;
+
+                @media (max-width: 1280px) and (min-width: 780px) {
+                    margin-left: 30px;
+                    font-size: 12px;
+                }
 
                 &::after {
                     content: '';
@@ -106,6 +114,10 @@ body {
 
         &-search {
             margin-left: 100px;
+
+            @media (max-width: 1280px) and (min-width: 780px) {
+                margin-left: -100px;
+            }
             input {
                 width: 200px;
                 border-radius: 30px;
@@ -119,6 +131,13 @@ body {
                 &:focus {
                     opacity: 1;
                     width: 220px;
+                    @media (max-width: 1280px) and (min-width: 780px) {
+                        width: 140px;
+                    }
+                }
+
+                @media (max-width: 1280px) and (min-width: 780px) {
+                    width: 120px;
                 }
             }
 
@@ -137,7 +156,9 @@ body {
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.2s ease-in;
-
+            @media (max-width: 1280px) and (min-width: 780px) {
+                width: 120px;
+            }
             &:hover {
                 background-color: #333;
             }
@@ -217,6 +238,7 @@ body {
                 transition: 0.3s ease-in-out;
                 opacity: 0;
                 height: 100px;
+                
 
                 button {
                     width: 258px;
@@ -227,6 +249,9 @@ body {
                     border: none;
                     border-radius: 100px;
                     cursor: pointer;
+                    @media (max-width: 770px) and (min-width: 391px) {
+                        width: 140px;
+                    }
                 }
             }
 
@@ -262,6 +287,10 @@ body {
                     width: 55px;
                     height: 2px;
                     background-color: #808080;
+                    @media (max-width: 770px) and (min-width: 391px) {
+                        top: 14px;
+                        left: 66px;
+                    }
                 }
             }
         }
