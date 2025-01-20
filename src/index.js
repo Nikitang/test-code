@@ -18,8 +18,8 @@ import logoClose from '../src/assets/images/close-menu.png';
 const siteIcon = document.querySelector('.header__second-logo img');
 const searchIcon = document.querySelector('.header__second-search img');
 const basketIcon = document.querySelector('.header__second-basket img');
-const siteIconW = document.querySelector('.footer__block-one-logo img');
 
+const siteIconW = document.querySelector('.footer__block-one-logo img');
 const cardIconOne = document.querySelector('.footer__block-four--cards-one');
 const cardIconTwo = document.querySelector('.footer__block-four--cards-two');
 const cardIconThree = document.querySelector('.footer__block-four--cards-three');
@@ -27,8 +27,8 @@ const cardIconThree = document.querySelector('.footer__block-four--cards-three')
 siteIcon.src = logoB;
 searchIcon.src = logoSearch;
 basketIcon.src = logoBasket;
-siteIconW.src = logoW;
 
+siteIconW.src = logoW;
 cardIconOne.src = logoCardOne;
 cardIconTwo.src = logoCardTwo;
 cardIconThree.src = logoCardThree;
@@ -168,33 +168,74 @@ let setOpen = false;
 const footerDiv = document.querySelector('.header');
 const savedDiv = footerDiv.innerHTML;
 window.addEventListener('resize', () => {
-    
-    
     if (window.innerWidth <= 770) {
-        
         footerDiv.innerHTML = `
         <div class="header__second">
             <div class="header__second-logo">
                 <img src=${logoB} alt="" />
                 <span>URBAN DWELLING</span>
             </div>
-            <div class="header__second-menu">
+            <div class="header__second-open-menu">
                 <img src=${logoMenu} alt="" />
             </div>
+        </div>
+        <div class="header__menu">
+        <div class="header__menu-logo">
+            <img src="" alt="" />
+            <span>URBAN DWELLING</span>
+        </div>
+        <div class="header__menu-help">
+            <span>Доставка и оплата</span>
+        </div>
+        <div class="header__menu-help">
+            <span>Гарантия и возврат</span>
+        </div>
+        <div class="header__menu-help">
+            <span>EN</span>
+        </div>
+
+        <div class="header__menu-navs">
+            <a href="#main" class="header__menu-navs-nav">КАТАЛОГ</a>
+            <a href="#footer" class="header__menu-navs-nav">О КОМПАНИИ</a>
+            <a href="#footer" class="header__menu-navs-nav">КОНТАКТЫ</a>
+        </div>
+
+        <div class="header__menu-search">
+            <input type="text" placeholder="Лампы" />
+            <img src="" alt="" />
+        </div>
+
+        <div class="header__menu-basket">
+            <img src="" alt="" />
+            <span>Корзина</span>
+        </div>
         </div>`;
 
-        const menuImg = document.querySelector('.header__second-menu img');
+        const menuImg = document.querySelector('.header__second-open-menu img');
         menuImg.removeEventListener('click', handleMenuClick);
         menuImg.addEventListener('click', handleMenuClick);
+
+        //mobile
+        const siteIconM = document.querySelector('.header__menu-logo img');
+        const searchIconM = document.querySelector('.header__menu-search img');
+        const basketIconM = document.querySelector('.header__menu-basket img');
+
+        siteIconM.src = logoB;
+        searchIconM.src = logoSearch;
+        basketIconM.src = logoBasket;
+        //mobile
     } else if (window.innerWidth >= 770) {
         footerDiv.innerHTML = savedDiv;
     }
-
-    
 });
 function handleMenuClick() {
     setOpen = !setOpen;
+    console.log(setOpen);
 
-    const menuImg = document.querySelector('.header__second-menu img');
+    const menuImg = document.querySelector('.header__second-open-menu img');
     menuImg.src = setOpen ? logoClose : logoMenu;
+    const menuDiv = document.querySelector('.header__menu');
+    if (menuDiv) {
+        menuDiv.classList.toggle('opened', setOpen);
+    }
 }
