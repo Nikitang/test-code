@@ -46,7 +46,7 @@ export default (env) => {
             ],
         },
         devServer: {
-            port: 3003,
+            port: 3001,
             open: true,
         },
     };
