@@ -599,6 +599,147 @@ body {
     height: 320px;
     align-items: center;
 
+    //mobile
+
+    @media (max-width: 755px) {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        height: 860px;
+        justify-content: left;
+        align-items: flex-start;
+    }
+
+    &__mobile {
+        &-logo {
+            margin: 40px 0 10px 80px;
+
+            span {
+                font-family: 'Kurotaki';
+                color: #ffffff;
+                display: inline-block;
+                font-size: 14px;
+                width: 20px;
+                margin: 0 0 5px 0;
+                @media (max-width: 1280px) and (min-width: 780px) {
+                    font-size: 10px;
+                }
+                @media (max-width: 770px) and (min-width: 391px) {
+                    font-size: 10px;
+                }
+            }
+
+            img {
+                position: relative;
+                top: 2px;
+                height: 56px;
+                width: 56px;
+                @media (max-width: 1280px) and (min-width: 780px) {
+                    height: 40px;
+                    width: 40px;
+                }
+
+                @media (max-width: 770px) and (min-width: 391px) {
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+        }
+
+        &--captcha {
+            width: 325px;
+            margin: 0 0 0 80px;
+            span {
+                font-family: $baseFont;
+                color: #808080;
+            }
+
+            a {
+                font-family: $baseFont;
+                color: #808080;
+            }
+            @media (max-width: 1280px) and (min-width: 780px) {
+                font-size: 12px;
+                width: 220px;
+            }
+
+            @media (max-width: 770px) and (min-width: 391px) {
+                font-size: 12px;
+                width: 260px;
+            }
+
+            @media (max-width: 390px) {
+                font-size: 12px;
+                width: 220px;
+            }
+        }
+
+        @media (max-width: 1280px) and (min-width: 780px) {
+            font-size: 12px;
+        }
+
+        @media (max-width: 770px) and (min-width: 391px) {
+            font-size: 11px;
+        }
+
+        &--address {
+            margin: 0 0 0 80px;
+
+            font-family: $baseFont;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        &--contacts {
+            margin: 0 0 0 80px;
+
+            display: flex;
+            flex-direction: column;
+            font-family: $baseFont;
+            color: #fff;
+
+            span {
+                margin-bottom: 20px;
+            }
+        }
+
+        &--services {
+            margin: 30px 0 10px 80px;
+
+            font-family: $baseFont;
+        }
+
+        &-serv {
+            margin: 0 0 0 80px;
+
+            font-family: $baseFont;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                margin: 10px 0 10px 0;
+            }
+        }
+
+        &--oferta {
+            margin: 20px 0 0 80px;
+            font-family: $baseFont;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                color: #808080;
+                margin: 10px 0 10px 0;
+            }
+        }
+
+        &--cards {
+            margin: 10px 0 30px 80px;
+        }
+    }
+
+    //mobile.
+
     &__block-one {
         &-logo {
             margin-bottom: 40px;

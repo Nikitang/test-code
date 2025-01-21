@@ -99,49 +99,53 @@ const init = () => {
 
     const footerDiv = document.querySelector('.header');
     const savedDiv = footerDiv.innerHTML;
+
+    const footerMobile = document.querySelector('.footer');
+    const saveFooter = footerMobile.innerHTML;
+
     window.addEventListener('resize', () => {
         if (window.innerWidth <= 770) {
             footerDiv.innerHTML = `
-        <div class="header__second">
-            <div class="header__second-logo">
-                <img src=${logoB} alt="" />
-                <span>URBAN DWELLING</span>
-            </div>
-            <div class="header__second-open-menu">
-                <img src=${logoMenu} alt="" />
-            </div>
-        </div>
-        <div class="header__menu">
-        <div class="header__menu-logo">
-            <img src="" alt="" />
-            <span>URBAN DWELLING</span>
-        </div>
-        <div class="header__menu-help">
-            <span>Доставка и оплата</span>
-        </div>
-        <div class="header__menu-help">
-            <span>Гарантия и возврат</span>
-        </div>
-        <div class="header__menu-help">
-            <span>EN</span>
-        </div>
+                <div class="header__second">
+                    <div class="header__second-logo">
+                        <img src=${logoB} alt="" />
+                        <span>URBAN DWELLING</span>
+                    </div>
+                    <div class="header__second-open-menu">
+                        <img src=${logoMenu} alt="" />
+                    </div>
+                </div>
+                <div class="header__menu">
+                <div class="header__menu-logo">
+                    <img src="" alt="" />
+                    <span>URBAN DWELLING</span>
+                </div>
+                <div class="header__menu-help">
+                    <span>Доставка и оплата</span>
+                </div>
+                <div class="header__menu-help">
+                    <span>Гарантия и возврат</span>
+                </div>
+                <div class="header__menu-help">
+                    <span>EN</span>
+                </div>
 
-        <div class="header__menu-navs">
-            <a href="#main" class="header__menu-navs-nav">КАТАЛОГ</a>
-            <a href="#footer" class="header__menu-navs-nav">О КОМПАНИИ</a>
-            <a href="#footer" class="header__menu-navs-nav">КОНТАКТЫ</a>
-        </div>
+                <div class="header__menu-navs">
+                    <a href="#main" class="header__menu-navs-nav">КАТАЛОГ</a>
+                    <a href="#footer" class="header__menu-navs-nav">О КОМПАНИИ</a>
+                    <a href="#footer" class="header__menu-navs-nav">КОНТАКТЫ</a>
+                </div>
 
-        <div class="header__menu-search">
-            <input type="text" placeholder="Лампы" />
-            <img src="" alt="" />
-        </div>
+                <div class="header__menu-search">
+                    <input type="text" placeholder="Лампы" />
+                    <img src="" alt="" />
+                </div>
 
-        <div class="header__menu-basket">
-            <img src="" alt="" />
-            <span>Корзина</span>
-        </div>
-        </div>`;
+                <div class="header__menu-basket">
+                    <img src="" alt="" />
+                    <span>Корзина</span>
+                </div>
+                </div>`;
 
             const menuImg = document.querySelector('.header__second-open-menu img');
             menuImg.removeEventListener('click', handleMenuClick);
@@ -155,11 +159,84 @@ const init = () => {
             siteIconM.src = logoB;
             searchIconM.src = logoSearch;
             basketIconM.src = logoBasket;
+
             //mobile
-        } else if (window.innerWidth >= 770) {
+            document.addEventListener('click', handleClickOutside);
+
+            const menuLinks = document.querySelectorAll('.header__menu-navs-nav');
+            menuLinks.forEach((link) => {
+                link.addEventListener('click', handleMenuLinkClick);
+            });
+        } else if (window.innerWidth > 770) {
             footerDiv.innerHTML = savedDiv;
+
+            document.removeEventListener('click', handleClickOutside);
+
+            const menuLinks = document.querySelectorAll('.header__menu-navs-nav');
+            menuLinks.forEach((link) => {
+                link.removeEventListener('click', handleMenuLinkClick);
+            });
+        }
+
+        if (window.innerWidth <= 755) {
+            footerMobile.innerHTML = `
+                <div class="footer__mobile-logo">
+                    <img src="" alt="" />
+                    <span>URBAN DWELLING</span>
+                </div>
+
+                <div class="footer__mobile--address">
+                    <h4>Адрес</h4>
+                    <span>Текст, Текст, Текст</span>
+                </div>
+                <div class="footer__mobile--contacts">
+                    <h4>Контакты</h4>
+                    <span>Email: urban.dwelling@yandex.com</span>
+                    <span>Телефон: 8 (999) 999-99-99</span>
+                </div>
+
+                <h4 class="footer__mobile--services">Услуги</h4>
+                <div class="footer__mobile-serv">
+                    <span>Каталог</span>
+                    <span>О компании</span>
+                    <span>Котанкты</span>
+                    <span>Доставка и оплата</span>
+                    <span>Гарантия и возврат</span>
+                </div>
+               
+                <div class="footer__mobile--oferta">
+                    <span>Публичная оферта</span>
+                    <span>Политика персональных данных</span>  
+                </div>
+
+                <div class="footer__mobile--cards">
+                    <img src="" alt="" class="footer__mobile--cards-one" />
+                    <img src="" alt="" class="footer__mobile--cards-two" />
+                    <img src="" alt="" class="footer__mobile--cards-three" />
+                </div>
+
+                <div class="footer__mobile--captcha">
+                    <span>Этот сайт защищен от спама службой reCAPTCHA Google.</span>
+                    <a href="#">Политика конфиденциальности/Условия предоставления услуг</a>
+                </div>
+            `;
+            //mobile
+
+            const siteIconWM = document.querySelector('.footer__mobile-logo img');
+            const cardIconOneM = document.querySelector('.footer__mobile--cards-one');
+            const cardIconTwoM = document.querySelector('.footer__mobile--cards-two');
+            const cardIconThreeM = document.querySelector('.footer__mobile--cards-three');
+
+            siteIconWM.src = logoW;
+            cardIconOneM.src = logoCardOne;
+            cardIconTwoM.src = logoCardTwo;
+            cardIconThreeM.src = logoCardThree;
+            //mobile
+        } else if (window.innerWidth > 755) {
+            footerMobile.innerHTML = saveFooter;
         }
     });
+
     function handleMenuClick() {
         setOpen = !setOpen;
         console.log(setOpen);
@@ -170,6 +247,31 @@ const init = () => {
         if (menuDiv) {
             menuDiv.classList.toggle('opened', setOpen);
         }
+    }
+
+    function handleClickOutside(event) {
+        const menuDiv = document.querySelector('.header__menu');
+        const menuButton = document.querySelector('.header__second-open-menu img');
+        if (menuDiv && !menuDiv.contains(event.target) && !menuButton.contains(event.target)) {
+            console.log(event.target);
+
+            setOpen = false;
+            menuButton.src = logoMenu;
+            menuDiv.classList.remove('opened');
+        }
+    }
+
+    function handleMenuLinkClick(event) {
+        event.preventDefault();
+        setOpen = false;
+        const menuImg = document.querySelector('.header__second-open-menu img');
+        menuImg.src = logoMenu;
+        const menuDiv = document.querySelector('.header__menu');
+        if (menuDiv) {
+            menuDiv.classList.remove('opened');
+        }
+        const href = event.target.getAttribute('href');
+        window.location.href = href;
     }
 };
 
